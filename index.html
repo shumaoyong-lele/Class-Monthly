@@ -14,140 +14,188 @@
         </script>
         <style>
             body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            transition: background-color 0.4s, color 0.4s;
-        }
-        body.light {
-            background-color: #ffffff;
-            color: #000000;
-        }
-        body.dark {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        p {
-            text-align: center;
-            font-size: 18px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-        button:active {
-            background-color: #004494;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .navbar a:hover {
-            text-decoration: underline;
-        }
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        input:checked + .slider {
-            background-color: #000000; 
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        .light .slider:before {
-            content: url("Pngs/sun_fill.svg"); 
-        }
-        .dark .slider:before {
-            content: url("Pngs/moon_stars_fill.svg"); 
-        }
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+                color: #333;
+                line-height: 1.6;
+                transition: background-color 0.4s, color 0.4s;
+            }
+            body.light {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            body.dark {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .container {
+                width: 80%;
+                margin: auto;
+                overflow: hidden;
+                padding: 20px;
+                border-radius: 10px; /* 添加圆角 */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+                background-color: #fff; /* 设置背景颜色 */
+                margin-top: 20px; /* 添加顶部外边距 */
+            }
+            h1 {
+                text-align: center;
+                margin-top: 20px;
+                color: #007BFF;
+                animation: fadeIn 1s ease-in-out; /* 添加淡入动画 */
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            p {
+                text-align: center;
+                font-size: 18px;
+                color: #666; /* 设置文本颜色 */
+                margin-top: 10px; /* 添加顶部外边距 */
+            }
+            .nav-link {
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                transition: color 0.3s ease;
+                position: relative; /* 添加相对定位 */
+            }
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: #e0e0e0;
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: all 0.3s ease-in-out;
+            }
+            .nav-link:hover::after {
+                visibility: visible;
+                transform: scaleX(1);
+            }
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 30px; /* 增加内边距 */
+                background-color: #007BFF;
+                color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+                transition: background-color 0.3s ease; /* 添加过渡效果 */
+            }
+            .nav-links {
+                display: flex;
+                gap: 20px; /* 增加链接之间的间距 */
+            }
+            .switch {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+            }
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                transition: .4s;
+                border-radius: 34px;
+            }
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+            input:checked + .slider {
+                background-color: #000000; 
+            }
+            input:checked + .slider:before {
+
+                transform: translateX(26px);
+            }
+            .light .slider:before {
+                content: url("images/sun_line.svg"); 
+            }
+            .dark .slider:before {
+                content: url("images/moon_stars_line.svg"); 
+            }
+            button {
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+            button:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+            button:active {
+                background-color: #004494;
+            }
         </style>
     </head>
 
     <body class="light">
         <nav class="navbar">
-            <div>
-                <a href="index.html">首页</a>
-                <a href="about.html">关于我们</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="about.html" class="nav-link">关于我们</a>
             </div>
             <label class="switch">
-                <input type="checkbox" id="theme-toggle">
+                <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题">
                 <span class="slider round"></span>
             </label>
         </nav>
-        <div id="app"></div>
-        <script type="module" src="/src/main.ts"></script>
         <script>
             const toggleSwitch = document.getElementById("theme-toggle");
+            // 检测系统是否为深色模式
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+            // 根据系统偏好设置初始主题
+            if (prefersDarkMode) {
+                document.body.classList.remove("light");
+                document.body.classList.add("dark");
+                toggleSwitch.checked = true;
+            }
+        
             toggleSwitch.addEventListener("change", () => {
                 document.body.classList.toggle("dark");
                 document.body.classList.toggle("light");
             });
         </script>
-        <h1>欢迎来到班级月刊官网</h1>
-        <button onclick="location.href='https://shequ.codemao.cn/work/252078664'">在线体验</button>
-        <template>
-            <q-button>你好，世界</q-button>
-        </template>
+        <div class="container">
+            <h1>欢迎来到班级月刊官网</h1>
+            <button onclick="location.href='https://shequ.codemao.cn/work/252078664'">在线体验</button>
+        </div>
     </body>
 </html>

@@ -30,36 +30,43 @@
             background-color: #121212;
             color: #ffffff;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            color: #007BFF;
-        }
-        p {
-            text-align: center;
-            font-size: 18px;
-        }
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 15px 30px; 
             background-color: #007BFF;
             color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.3s ease; 
         }
-        .navbar a {
+        .nav-links {
+            display: flex;
+            gap: 20px; 
+        }
+        .nav-link {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            position: relative; /* 添加相对定位 */
         }
-        .navbar a:hover {
-            text-decoration: underline;
+        /* 添加下划线样式 */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #e0e0e0;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
         }
         .switch {
             position: relative;
@@ -101,21 +108,61 @@
             transform: translateX(26px);
         }
         .light .slider:before {
-            content: url("Pngs/sun_fill.svg"); 
+            content: url("images/sun_line.svg"); 
         }
         .dark .slider:before {
-            content: url("Pngs/moon_stars_fill.svg"); 
+            content: url("images/moon_stars_line.svg"); 
         }
+        /* 美化容器 */
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 美化标题 */
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 美化段落 */
+        p {
+            text-align: justify;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
     </style>
 </head>
 <body class="light">
     <nav class="navbar">
-        <div>
-            <a href="index.html">首页</a>
-            <a href="about.html">关于我们</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="about.html" class="nav-link">关于我们</a>
         </div>
         <label class="switch">
-            <input type="checkbox" id="theme-toggle">
+            <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题">
             <span class="slider round"></span>
         </label>
     </nav>
@@ -125,6 +172,16 @@
     </div>
     <script>
         const toggleSwitch = document.getElementById("theme-toggle");
+        // 检测系统是否为深色模式
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+        // 根据系统偏好设置初始主题
+        if (prefersDarkMode) {
+            document.body.classList.remove("light");
+            document.body.classList.add("dark");
+            toggleSwitch.checked = true;
+        }
+    
         toggleSwitch.addEventListener("change", () => {
             document.body.classList.toggle("dark");
             document.body.classList.toggle("light");
