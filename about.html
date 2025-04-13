@@ -187,5 +187,43 @@
             document.body.classList.toggle("light");
         });
     </script>
+    <script>
+        // 语言包
+        const languagePack = {
+            'zh-CN': {
+                title: '关于我们 - 班级月刊官网',
+                home: '首页',
+                about: '关于我们',
+                aboutContent: '这里是关于我们的介绍内容。'
+            },
+            'en-US': {
+                title: 'About Us - Class Monthly Official Website',
+                home: 'Home',
+                about: 'About Us',
+                aboutContent: 'This is the introduction content about us.'
+            }
+        };
+
+        // 检测用户系统语言
+        function detectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            return languagePack[userLang] ? userLang : 'en-US';
+        }
+
+        // 切换语言
+        function changeLanguage(lang) {
+            const langData = languagePack[lang];
+            document.title = langData.title;
+            document.querySelector('a[href="index.html"]').textContent = langData.home;
+            document.querySelector('a[href="about.html"]').textContent = langData.about;
+            document.querySelector('p').textContent = langData.aboutContent;
+        }
+
+        // 页面加载时自动切换语言
+        window.addEventListener('load', () => {
+            const detectedLang = detectLanguage();
+            changeLanguage(detectedLang);
+        });
+    </script>
 </body>
 </html>

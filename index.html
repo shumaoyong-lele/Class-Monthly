@@ -197,5 +197,46 @@
             <h1>欢迎来到班级月刊官网</h1>
             <button onclick="location.href='https://shequ.codemao.cn/work/252078664'">在线体验</button>
         </div>
+        <script>
+            // 语言包
+            const languagePack = {
+                'zh-CN': {
+                    title: '班级月刊官网',
+                    home: '首页',
+                    about: '关于我们',
+                    welcome: '欢迎来到班级月刊官网',
+                    experience: '在线体验'
+                },
+                'en-US': {
+                    title: 'Class Monthly Official Website',
+                    home: 'Home',
+                    about: 'About Us',
+                    welcome: 'Welcome to the Class Monthly Official Website',
+                    experience: 'Online Experience'
+                }
+            };
+
+            // 检测用户系统语言
+            function detectLanguage() {
+                const userLang = navigator.language || navigator.userLanguage;
+                return languagePack[userLang] ? userLang : 'en-US';
+            }
+
+            // 切换语言
+            function changeLanguage(lang) {
+                const langData = languagePack[lang];
+                document.title = langData.title;
+                document.querySelector('a[href="index.html"]').textContent = langData.home;
+                document.querySelector('a[href="about.html"]').textContent = langData.about;
+                document.querySelector('h1').textContent = langData.welcome;
+                document.querySelector('button').textContent = langData.experience;
+            }
+
+            // 页面加载时自动切换语言
+            window.addEventListener('load', () => {
+                const detectedLang = detectLanguage();
+                changeLanguage(detectedLang);
+            });
+        </script>
     </body>
 </html>
