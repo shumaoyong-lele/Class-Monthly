@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="Pngs/icon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>书籍-班级月刊官网</title>
+        <script type="text/javascript">
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "qtvqid4vik");
+        </script>
+        <link rel="stylesheet" href="books_css.css">
+    </head>
+
+    <body class="light">
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="about.html" class="nav-link">关于我们</a>
+                <a href="books.html" class="nav-link">书籍</a>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题">
+                <span class="slider round"></span>
+            </label>
+        </nav>
+        <div class="container">
+            <div class="book-grid">
+                <div class="book-item">
+                    <img src="Pngs/孔乙己.png" alt="孔乙己">
+                    <h3>孔乙己</h3>
+                    <p>作者：鲁迅</p>
+                    <div class="book-description">
+                        此作是鲁迅“五四”运动前夕继《狂人日记》之后第二篇白话小说。小说描写了孔乙己在封建腐朽思想和科举制度毒害下，精神上迂腐不堪、麻木不仁，生活上四体不勤、穷困潦倒，在人们的嘲笑戏谑中混度时日，最后被封建地主阶级所吞噬的悲惨形象。篇幅不长，但是深刻揭露了当时科举制度对知识分子精神的毒害和封建制度“吃人”的本质，具有强烈的反封建意义。
+                    </div>
+                </div>
+                <div class="book-item">
+                    <img src="Pngs/稻草人.png" alt="稻草人">
+                    <h3>稻草人</h3>
+                    <p>作者：叶圣陶</p>
+                    <div class="book-description">
+                        在这篇故事里，站在田野的稻草人目睹诸多人间惨事：农妇痛失亲人、渔妇艰难求生、鲫鱼挣扎求存。作者以细腻笔触，将社会的黑暗与底层人民的苦难展现得淋漓尽致，同时也传递出人性的善良与温暖。
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const toggleSwitch = document.getElementById("theme-toggle");
+            // 检测系统是否为深色模式
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+            // 根据系统偏好设置初始主题
+            if (prefersDarkMode) {
+                document.body.classList.remove("light");
+                document.body.classList.add("dark");
+                toggleSwitch.checked = true;
+            }
+        
+            toggleSwitch.addEventListener("change", () => {
+                document.body.classList.toggle("dark");
+                document.body.classList.toggle("light");
+            });
+        </script>
+        <script>
+            // 语言包
+            const languagePack = {
+                'zh-CN': {
+                    title: '书籍-班级月刊官网',
+                    home: '首页',
+                    about: '关于我们',
+                    books: '书籍',
+                    kongyiji: '孔乙己',
+                    luXun: '作者：鲁迅',
+                    kongyijiDesc: '此作是鲁迅“五四”运动前夕继《狂人日记》之后第二篇白话小说。小说描写了孔乙己在封建腐朽思想和科举制度毒害下，精神上迂腐不堪、麻木不仁，生活上四体不勤、穷困潦倒，在人们的嘲笑戏谑中混度时日，最后被封建地主阶级所吞噬的悲惨形象。篇幅不长，但是深刻揭露了当时科举制度对知识分子精神的毒害和封建制度“吃人”的本质，具有强烈的反封建意义。',
+                    daocaoren: '稻草人',
+                    yeShengtao: '作者：叶圣陶',
+                    daocaorenDesc: '在这篇故事里，站在田野的稻草人目睹诸多人间惨事：农妇痛失亲人、渔妇艰难求生、鲫鱼挣扎求存。作者以细腻笔触，将社会的黑暗与底层人民的苦难展现得淋漓尽致，同时也传递出人性的善良与温暖。'
+                },
+                'en-US': {
+                    title: 'Books - Class Monthly',
+                    home: 'Home',
+                    about: 'About Us',
+                    books: 'Books',
+                    kongyiji: 'Kong Yiji',
+                    luXun: 'Author: Lu Xun',
+                    kongyijiDesc: 'This work is Lu Xun’s second vernacular novel on the eve of the May Fourth Movement after "Diary of a Madman". The novel depicts the tragic image of Kong Yiji, who was poisoned by the decadent ideology of feudalism and the imperial examination system, mentally pedantic and insensitive, industrious and destitute in life, and spent time in people’s ridicule and ridicule, and was finally swallowed up by the feudal landlord class. The article is not long, but it profoundly exposes the poison of the imperial examination system to the spirit of intellectuals and the essence of the feudal system of "cannibalism", which has a strong anti-feudal significance.',
+                    daocaoren: 'The Scarecrow',
+                    yeShengtao: 'Author: Ye Shengtao',
+                    daocaorenDesc: 'In this story, the scarecrow standing in the field witnesses many human tragedies: the peasant woman who lost her loved ones, the fisherwoman who struggled to survive, and the crucian carp who struggled to survive. With delicate brushstrokes, the author vividly shows the darkness of society and the suffering of the people at the bottom, and also conveys the kindness and warmth of human nature.'
+                }
+            };
+
+            // 切换语言
+            function changeLanguage(lang) {
+                const langData = languagePack[lang];
+                document.title = langData.title;
+                document.querySelector('a[href="index.html"]').textContent = langData.home;
+                document.querySelector('a[href="about.html"]').textContent = langData.about;
+                document.querySelector('a[href="books.html"]').textContent = langData.books;
+                
+                // 更新书籍信息
+                const bookItems = document.querySelectorAll('.book-item');
+                bookItems[0].querySelector('h3').textContent = langData.kongyiji;
+                bookItems[0].querySelector('p').textContent = langData.luXun;
+                bookItems[0].querySelector('.book-description').textContent = langData.kongyijiDesc;
+                bookItems[1].querySelector('h3').textContent = langData.daocaoren;
+                bookItems[1].querySelector('p').textContent = langData.yeShengtao;
+                bookItems[1].querySelector('.book-description').textContent = langData.daocaorenDesc;
+            }
+
+            // 检测用户系统语言
+            function detectLanguage() {
+                const userLang = navigator.language || navigator.userLanguage;
+                return languagePack[userLang] ? userLang : 'en-US';
+            }
+
+            // 切换语言
+            function changeLanguage(lang) {
+                const langData = languagePack[lang];
+                
+            }
+
+            // 页面加载时自动切换语言
+            window.addEventListener('load', () => {
+                const detectedLang = detectLanguage();
+                changeLanguage(detectedLang);
+            });
+        </script>
+    </body>
+</html>
