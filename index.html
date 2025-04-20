@@ -1,93 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="Pngs/icon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>班级月刊官网</title>
-        <script type="text/javascript">
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "qtvqid4vik");
-        </script>
-        <link rel="stylesheet" href="index_css.css">
-    </head>
 
-    <body class="light">
-        <nav class="navbar">
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">首页</a>
-                <a href="about.html" class="nav-link">关于我们</a>
-                <a href="books.html" class="nav-link">书籍</a>
-            </div>
-            <label class="switch">
-                <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题">
-                <span class="slider round"></span>
-            </label>
-        </nav>
-        <script>
-            const toggleSwitch = document.getElementById("theme-toggle");
-            // 检测系统是否为深色模式
-            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-            // 根据系统偏好设置初始主题
-            if (prefersDarkMode) {
-                document.body.classList.remove("light");
-                document.body.classList.add("dark");
-                toggleSwitch.checked = true;
-            }
-        
-            toggleSwitch.addEventListener("change", () => {
-                document.body.classList.toggle("dark");
-                document.body.classList.toggle("light");
-            });
-        </script>
-        <div class="container">
-            <h1>欢迎来到班级月刊官网</h1>
-            <button onclick="location.href='https://shequ.codemao.cn/work/252078664'">在线体验</button>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="Pngs/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>班级月刊官网</title>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] =
+                c[a] ||
+                function () {
+                    (c[a].q = c[a].q || []).push(arguments);
+                };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "qtvqid4vik");
+    </script>
+    <link rel="stylesheet" href="all_css.css" />
+    <link rel="stylesheet" href="index_css.css" />
+</head>
+
+<body class="light">
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="books.html" class="nav-link">书籍</a>
         </div>
-        <script>
-            // 语言包
-            const languagePack = {
-                'zh-CN': {
-                    title: '班级月刊官网',
-                    home: '首页',
-                    about: '关于我们',
-                    welcome: '欢迎来到班级月刊官网',
-                    experience: '在线体验'
-                },
-                'en-US': {
-                    title: 'Class Monthly Official Website',
-                    home: 'Home',
-                    about: 'About Us',
-                    welcome: 'Welcome to the Class Monthly Official Website',
-                    experience: 'Online Experience'
-                }
-            };
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题" />
+            <span class="slider round"></span>
+        </label>
+    </nav>
+    <script>
+        const toggleSwitch = document.getElementById("theme-toggle");
+        // 检测系统是否为深色模式
+        const prefersDarkMode = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
 
-            // 检测用户系统语言
-            function detectLanguage() {
-                const userLang = navigator.language || navigator.userLanguage;
-                return languagePack[userLang] ? userLang : 'en-US';
-            }
+        // 根据系统偏好设置初始主题
+        if (prefersDarkMode) {
+            document.body.classList.remove("light");
+            document.body.classList.add("dark");
+            toggleSwitch.checked = true;
+        }
 
-            // 切换语言
-            function changeLanguage(lang) {
-                const langData = languagePack[lang];
-                document.title = langData.title;
-                document.querySelector('a[href="index.html"]').textContent = langData.home;
-                document.querySelector('a[href="about.html"]').textContent = langData.about;
-                document.querySelector('h1').textContent = langData.welcome;
-                document.querySelector('button').textContent = langData.experience;
-            }
+        toggleSwitch.addEventListener("change", () => {
+            document.body.classList.toggle("dark");
+            document.body.classList.toggle("light");
+        });
+    </script>
+    <div class="container">
+        <h1>欢迎来到班级月刊官网</h1>
+        <button onclick="location.href='https://shequ.codemao.cn/work/252078664'">
+            在线体验
+        </button>
+    </div>
+</body>
 
-            // 页面加载时自动切换语言
-            window.addEventListener('load', () => {
-                const detectedLang = detectLanguage();
-                changeLanguage(detectedLang);
-            });
-        </script>
-    </body>
 </html>

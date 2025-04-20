@@ -1,3 +1,4 @@
+/* 基础样式 */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,12 +19,13 @@ body.dark {
     color: #ffffff;
 }
 
+/* 导航栏样式 */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #007bff;
+    background-color: #007BFF;
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
@@ -40,12 +42,10 @@ body.dark {
     font-size: 18px;
     transition: color 0.3s ease;
     position: relative;
-    /* 添加相对定位 */
 }
 
-/* 添加下划线样式 */
 .nav-link::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     height: 2px;
@@ -62,6 +62,7 @@ body.dark {
     transform: scaleX(1);
 }
 
+/* 主题切换按钮 */
 .switch {
     position: relative;
     display: inline-block;
@@ -83,7 +84,7 @@ body.dark {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: 0.4s;
+    transition: .4s;
     border-radius: 34px;
 }
 
@@ -95,7 +96,7 @@ body.dark {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    transition: 0.4s;
+    transition: .4s;
     border-radius: 50%;
 }
 
@@ -115,41 +116,38 @@ input:checked+.slider:before {
     content: url("images/moon_stars_line.svg");
 }
 
-/* 美化容器 */
+/* 基础容器样式 */
 .container {
     width: 80%;
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 40px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 1s ease-out;
+    margin-top: 20px;
 }
 
-/* 关于我们页面特有样式 */
-.container {
-    max-width: 900px;
-    padding: 40px;
-    animation: fadeInUp 1s ease-out;
-}
-
+/* 基础标题样式 */
 h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 20px;
+    color: #007BFF;
 }
 
+/* 基础段落样式 */
 p {
-    text-align: justify;
-    line-height: 1.8;
-    color: #555;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
 }
 
-@keyframes fadeInUp {
+/* 基础动画 */
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(-20px);
     }
 
     to {

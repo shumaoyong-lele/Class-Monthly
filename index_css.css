@@ -7,53 +7,70 @@ body {
     line-height: 1.6;
     transition: background-color 0.4s, color 0.4s;
 }
+
 body.light {
     background-color: #ffffff;
     color: #000000;
 }
+
 body.dark {
     background-color: #121212;
     color: #ffffff;
 }
+
 .container {
     width: 80%;
     margin: auto;
     overflow: hidden;
     padding: 20px;
-    border-radius: 10px; /* 添加圆角 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    background-color: #fff; /* 设置背景颜色 */
-    margin-top: 20px; /* 添加顶部外边距 */
+    border-radius: 10px;
+    /* 添加圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 添加阴影 */
+    background-color: #fff;
+    /* 设置背景颜色 */
+    margin-top: 20px;
+    /* 添加顶部外边距 */
 }
+
 h1 {
     text-align: center;
     margin-top: 20px;
     color: #007BFF;
-    animation: fadeIn 1s ease-in-out; /* 添加淡入动画 */
+    animation: fadeIn 1s ease-in-out;
+    /* 添加淡入动画 */
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 p {
     text-align: center;
     font-size: 18px;
-    color: #666; /* 设置文本颜色 */
-    margin-top: 10px; /* 添加顶部外边距 */
+    color: #666;
+    /* 设置文本颜色 */
+    margin-top: 10px;
+    /* 添加顶部外边距 */
 }
+
 .nav-link {
     color: white;
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s ease;
-    position: relative; /* 添加相对定位 */
+    position: relative;
+    /* 添加相对定位 */
 }
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -66,35 +83,45 @@ p {
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
 }
+
 .nav-link:hover::after {
     visibility: visible;
     transform: scaleX(1);
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; /* 增加内边距 */
+    padding: 15px 30px;
+    /* 增加内边距 */
     background-color: #007BFF;
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    transition: background-color 0.3s ease; /* 添加过渡效果 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* 添加阴影 */
+    transition: background-color 0.3s ease;
+    /* 添加过渡效果 */
 }
+
 .nav-links {
     display: flex;
-    gap: 20px; /* 增加链接之间的间距 */
+    gap: 20px;
+    /* 增加链接之间的间距 */
 }
+
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
 }
+
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -106,6 +133,7 @@ p {
     transition: .4s;
     border-radius: 34px;
 }
+
 .slider:before {
     position: absolute;
     content: "";
@@ -117,19 +145,29 @@ p {
     transition: .4s;
     border-radius: 50%;
 }
-input:checked + .slider {
-    background-color: #000000; 
+
+input:checked+.slider {
+    background-color: #000000;
 }
-input:checked + .slider:before {
+
+input:checked+.slider:before {
 
     transform: translateX(26px);
 }
+
 .light .slider:before {
-    content: url("images/sun_line.svg"); 
+    content: url("images/sun_line.svg");
 }
+
 .dark .slider:before {
-    content: url("images/moon_stars_line.svg"); 
+    content: url("images/moon_stars_line.svg");
 }
+
+/* 首页特有样式 */
+h1 {
+    animation: fadeIn 1s ease-in-out;
+}
+
 button {
     background-color: #007BFF;
     color: white;
@@ -140,10 +178,12 @@ button {
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
 }
+
 button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
+
 button:active {
     background-color: #004494;
 }
