@@ -6,6 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="Pngs/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>班级月刊官网</title>
+    <script src="script.js"></script>
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] =
@@ -36,25 +37,7 @@
             <span class="slider round"></span>
         </label>
     </nav>
-    <script>
-        const toggleSwitch = document.getElementById("theme-toggle");
-        // 检测系统是否为深色模式
-        const prefersDarkMode = window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches;
 
-        // 根据系统偏好设置初始主题
-        if (prefersDarkMode) {
-            document.body.classList.remove("light");
-            document.body.classList.add("dark");
-            toggleSwitch.checked = true;
-        }
-
-        toggleSwitch.addEventListener("change", () => {
-            document.body.classList.toggle("dark");
-            document.body.classList.toggle("light");
-        });
-    </script>
     <div class="container">
         <h1>欢迎来到班级月刊官网</h1>
         <button onclick="location.href='https://shequ.codemao.cn/work/252078664'">
