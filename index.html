@@ -1,35 +1,47 @@
 <!DOCTYPE html>
+<!-- 网站首页，包含导航栏和欢迎内容 -->
 <html lang="zh-CN" dir="ltr">
 
 <head>
+    <!-- 基础元数据 -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="Pngs/icon.svg" />
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/svg+xml" href="pngs/icon.svg" />
+    <!-- 响应式设计设置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 页面标题 -->
     <title>班级月刊官网</title>
+    <!-- 引入首页专用JS -->
     <script src="js/index.js"></script>
+    <!-- 引入通用样式和首页专用样式 -->
     <link rel="stylesheet" href="css/all.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body class="light">
+    <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-links">
             <a href="index.html" class="nav-link">首页</a>
             <a href="about.html" class="nav-link">关于我们</a>
             <a href="books.html" class="nav-link">书籍</a>
         </div>
+        <!-- 主题切换开关 -->
         <label class="switch">
             <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题" />
             <span class="slider round"></span>
         </label>
     </nav>
 
+    <!-- 主要内容区域 -->
     <div class="container">
         <h1>欢迎来到班级月刊官网</h1>
+        <!-- 在线体验按钮 -->
         <button onclick="location.href='https://shequ.codemao.cn/work/252078664'">
             在线体验
         </button>
     </div>
+    <!-- 引入通用JS -->
     <script src="js/script.js"></script>
 </body>
 

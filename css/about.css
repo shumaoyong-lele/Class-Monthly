@@ -127,25 +127,32 @@ input:checked+.slider:before {
     animation: fadeInUp 1s ease-out;
 }
 
-/* 关于我们页面特有样式 */
+/* 关于我们页面专用样式
+ * 扩展自all.css的基础样式，添加了关于页面的特有样式
+ */
+
+/* 继承基础样式 */
 .container {
     max-width: 900px;
     padding: 40px;
     animation: fadeInUp 1s ease-out;
 }
 
+/* 关于页面标题样式 */
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* 关于页面段落样式 */
 p {
     text-align: justify;
     line-height: 1.8;
     color: #555;
 }
 
+/* 向上淡入动画 */
 @keyframes fadeInUp {
     from {
         opacity: 0;

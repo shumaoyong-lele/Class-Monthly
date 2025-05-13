@@ -1,4 +1,9 @@
-/* 基础样式 */
+/* 
+ * 基础通用样式 - 应用于所有页面
+ * 包含：基础布局、导航栏、主题切换等全局样式
+ */
+
+/* 基础页面样式 */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,13 +12,16 @@ body {
     color: #333;
     line-height: 1.6;
     transition: background-color 0.4s, color 0.4s;
+    /* 平滑过渡效果 */
 }
 
+/* 浅色主题样式 */
 body.light {
     background-color: #ffffff;
     color: #000000;
 }
 
+/* 深色主题样式 */
 body.dark {
     background-color: #121212;
     color: #ffffff;
@@ -31,11 +39,13 @@ body.dark {
     transition: background-color 0.3s ease;
 }
 
+/* 导航链接容器 */
 .nav-links {
     display: flex;
     gap: 20px;
 }
 
+/* 单个导航链接样式 */
 .nav-link {
     color: white;
     text-decoration: none;
@@ -44,6 +54,7 @@ body.dark {
     position: relative;
 }
 
+/* 导航链接下划线动画效果 */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -57,12 +68,13 @@ body.dark {
     transition: all 0.3s ease-in-out;
 }
 
+/* 导航链接悬停效果 */
 .nav-link:hover::after {
     visibility: visible;
     transform: scaleX(1);
 }
 
-/* 主题切换按钮 */
+/* 主题切换开关样式 */
 .switch {
     position: relative;
     display: inline-block;
@@ -70,12 +82,14 @@ body.dark {
     height: 34px;
 }
 
+/* 隐藏默认复选框 */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
+/* 滑块样式 */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -88,6 +102,7 @@ body.dark {
     border-radius: 34px;
 }
 
+/* 滑块按钮 */
 .slider:before {
     position: absolute;
     content: "";
@@ -100,6 +115,7 @@ body.dark {
     border-radius: 50%;
 }
 
+/* 选中状态样式 */
 input:checked+.slider {
     background-color: #000000;
 }
@@ -108,12 +124,14 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
+/* 浅色主题图标 */
 .light .slider:before {
-    content: url("images/sun_line.svg");
+    content: url("images\sun_line.svg");
 }
 
+/* 深色主题图标 */
 .dark .slider:before {
-    content: url("images/moon_stars_line.svg");
+    content: url("images\moon_stars_line.svg");
 }
 
 /* 基础容器样式 */
@@ -143,7 +161,7 @@ p {
     margin-top: 10px;
 }
 
-/* 基础动画 */
+/* 淡入动画 */
 @keyframes fadeIn {
     from {
         opacity: 0;

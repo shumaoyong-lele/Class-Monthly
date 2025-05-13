@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="Pngs/icon.svg" />
@@ -15,14 +16,17 @@
             line-height: 1.6;
             transition: background-color 0.4s, color 0.4s;
         }
+
         body.light {
             background-color: #ffffff;
             color: #000000;
         }
+
         body.dark {
             background-color: #121212;
             color: #ffffff;
         }
+
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -33,10 +37,12 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
         }
+
         .nav-links {
             display: flex;
             gap: 20px;
         }
+
         .nav-link {
             color: white;
             text-decoration: none;
@@ -44,6 +50,7 @@
             transition: color 0.3s ease;
             position: relative;
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -56,21 +63,25 @@
             transform: scaleX(0);
             transition: all 0.3s ease-in-out;
         }
+
         .nav-link:hover::after {
             visibility: visible;
             transform: scaleX(1);
         }
+
         .switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 34px;
         }
+
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -82,6 +93,7 @@
             transition: .4s;
             border-radius: 34px;
         }
+
         .slider:before {
             position: absolute;
             content: "";
@@ -93,18 +105,23 @@
             transition: .4s;
             border-radius: 50%;
         }
-        input:checked + .slider {
+
+        input:checked+.slider {
             background-color: #000000;
         }
-        input:checked + .slider:before {
+
+        input:checked+.slider:before {
             transform: translateX(26px);
         }
+
         .light .slider:before {
             content: url("images/sun_line.svg");
         }
+
         .dark .slider:before {
             content: url("images/moon_stars_line.svg");
         }
+
         .container {
             width: 80%;
             max-width: 900px;
@@ -115,16 +132,19 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 1s ease-out;
         }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         h1 {
             text-align: center;
             color: #007BFF;
@@ -132,6 +152,7 @@
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         p {
             text-align: justify;
             font-size: 18px;
@@ -140,6 +161,7 @@
         }
     </style>
 </head>
+
 <body class="light">
     <nav class="navbar">
         <div class="nav-links">
@@ -209,4 +231,5 @@
         });
     </script>
 </body>
+
 </html>

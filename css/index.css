@@ -163,11 +163,18 @@ input:checked+.slider:before {
     content: url("images/moon_stars_line.svg");
 }
 
-/* 首页特有样式 */
+/* 首页专用样式 */
+/*
+ * 首页专用样式
+ * 包含：欢迎内容、按钮等特有样式
+ */
+
+/* 继承基础样式 */
 h1 {
     animation: fadeIn 1s ease-in-out;
 }
 
+/* 在线体验按钮样式 */
 button {
     background-color: #007BFF;
     color: white;
@@ -179,11 +186,13 @@ button {
     transition: background-color 0.3s, transform 0.3s;
 }
 
+/* 按钮悬停效果 */
 button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
+/* 按钮点击效果 */
 button:active {
     background-color: #004494;
 }

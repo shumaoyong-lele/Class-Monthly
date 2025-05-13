@@ -163,7 +163,11 @@ input:checked+.slider:before {
     content: url("images/moon_stars_line.svg");
 }
 
-/* 书籍页面特有样式 */
+/* 书籍页面展示页面专用样式
+ * 包含：书籍网格布局、书籍项样式、阅读弹窗等
+ */
+
+/* 继承基础样式 */
 .book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -171,6 +175,7 @@ input:checked+.slider:before {
     padding: 20px;
 }
 
+/* 单个书籍项样式 */
 .book-item {
     position: relative;
     text-align: center;
@@ -180,13 +185,14 @@ input:checked+.slider:before {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     cursor: pointer;
-    /* 添加这个确保鼠标变成手型 */
 }
 
+/* 书籍项悬停效果 */
 .book-item:hover {
     transform: translateY(-5px);
 }
 
+/* 书籍图片样式 */
 .book-item img {
     width: 100%;
     max-height: 300px;
@@ -194,16 +200,19 @@ input:checked+.slider:before {
     margin-bottom: 10px;
 }
 
+/* 书籍标题样式 */
 .book-item h3 {
     margin: 10px 0;
     color: #333;
 }
 
+/* 书籍作者样式 */
 .book-item p {
     color: #666;
     font-size: 14px;
 }
 
+/* 书籍描述样式（悬停显示） */
 .book-description {
     position: absolute;
     top: 0;
@@ -222,16 +231,19 @@ input:checked+.slider:before {
     border-radius: 8px;
 }
 
+/* 书籍描述悬停显示效果 */
 .book-item:hover .book-description {
     opacity: 1;
 }
 
+/* 书籍网格动画 */
 .book-grid {
     animation: slideUp 0.8s ease-out forwards;
     opacity: 0;
     transform: translateY(20px);
 }
 
+/* 向上滑动动画 */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -244,7 +256,7 @@ input:checked+.slider:before {
     }
 }
 
-/* 弹窗样式 */
+/* 阅读弹窗样式 */
 .book-modal {
     display: none;
     position: fixed;
@@ -258,10 +270,12 @@ input:checked+.slider:before {
     transition: opacity 0.3s ease;
 }
 
+/* 弹窗显示状态 */
 .book-modal.show {
     opacity: 1;
 }
 
+/* 弹窗内容区域 */
 .modal-content {
     background-color: white;
     margin: 5% auto;
@@ -272,6 +286,7 @@ input:checked+.slider:before {
     position: relative;
 }
 
+/* 关闭按钮样式 */
 .close-modal {
     position: absolute;
     top: 10px;
@@ -281,11 +296,13 @@ input:checked+.slider:before {
     cursor: pointer;
 }
 
+/* 弹窗容器布局 */
 .modal-container {
     display: flex;
     height: 80vh;
 }
 
+/* 目录区域样式 */
 .modal-toc {
     width: 30%;
     padding-right: 20px;
@@ -293,73 +310,69 @@ input:checked+.slider:before {
     overflow-y: auto;
 }
 
+/* 内容区域样式 */
 .modal-content-text {
     width: 70%;
     padding-left: 20px;
     overflow-y: auto;
 }
 
+/* 目录项样式 */
 .toc-list li {
     cursor: pointer;
     padding: 8px 0;
 }
 
+/* 目录项悬停效果 */
 .toc-list li:hover {
     color: #0066cc;
 }
 
-.modal-container {
-    display: flex;
-    height: 70vh;
-}
-
-.modal-toc {
-    flex: 1;
-    padding-right: 20px;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-}
-
-.modal-content-text {
-    flex: 2;
-    padding-left: 20px;
-    overflow-y: auto;
-}
-
-.close-modal {
-    float: right;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* 显示时的动画 */
-
 /* 深色模式下的弹窗样式 */
 .dark .modal-content {
-    background-color: #333;
-    color: #fff;
+    background-color: #1e1e1e;
+    color: #ffffff;
 }
 
 .dark .modal-toc {
-    border-right-color: #555;
+    border-right-color: #444;
+    background-color: #1e1e1e;
 }
 
 .dark .modal-content-text {
-    color: #eee;
+    color: #e0e0e0;
+    background-color: #1e1e1e;
 }
 
 .dark .close-modal {
-    color: #fff;
+    color: #ffffff;
 }
 
 /* 深色模式下的书籍介绍样式 */
 .dark .book-description {
     color: #e0e0e0;
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.dark .book-item {
+    background-color: #2d2d2d;
 }
 
 .dark .book-item h3,
 .dark .book-item p {
     color: #ffffff;
+}
+
+.dark .toc-list li {
+    border-bottom-color: #444;
+}
+
+.dark .toc-list li:hover {
+    color: #4dabf7;
+}
+
+.dark .content-text {
+    color: #e0e0e0;
 }
 
 .toc-list {
