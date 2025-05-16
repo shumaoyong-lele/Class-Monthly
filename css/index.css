@@ -186,6 +186,11 @@ button {
     transition: background-color 0.3s, transform 0.3s;
 }
 
+/* 深色模式下的按钮样式 */
+.dark button {
+    background-color: #1a73e8;
+}
+
 /* 按钮悬停效果 */
 button:hover {
     background-color: #0056b3;

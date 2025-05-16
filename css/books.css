@@ -396,3 +396,185 @@ input:checked+.slider:before {
     padding: 10px;
     line-height: 1.6;
 }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+        padding: 15px;
+    }
+
+    .modal-container {
+        flex-direction: column;
+        height: 80vh;
+    }
+
+    .modal-toc {
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        height: 40%;
+    }
+
+    .modal-content-text {
+        width: 100%;
+        padding-left: 0;
+        height: 60%;
+    }
+
+    .close-modal {
+        font-size: 34px;
+        right: 15px;
+    }
+
+    .toc-list li {
+        padding: 12px 0;
+        font-size: 16px;
+    }
+
+    .content-text {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}
+
+/* 深色模式适配 */
+@media (max-width: 768px) {
+    .dark .modal-toc {
+        border-bottom-color: #444;
+    }
+}
+
+@media (max-width: 480px) {
+    .dark .modal-content {
+        background-color: #121212;
+    }
+
+    .dark .toc-list li {
+        border-bottom-color: #333;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 10px;
+    }
+
+    .modal-toc,
+    .modal-content-text {
+        height: 50%;
+    }
+
+    .close-modal {
+        font-size: 28px;
+    }
+
+    .toc-list li {
+        padding: 10px 0;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .toc-list li:active {
+        background-color: rgba(0, 102, 204, 0.1);
+    }
+
+    .dark .toc-list li:active {
+        background-color: rgba(77, 171, 247, 0.1);
+    }
+}
+
+.toc-toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    /* 调整到关闭按钮左侧 */
+    padding: 5px 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.toc-toggle-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.modal-toc {
+    width: 30%;
+    padding-right: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    transform-origin: left;
+}
+
+.modal-toc.hidden {
+    transform: scaleX(0);
+    width: 0;
+    padding-right: 0;
+    opacity: 0;
+}
+
+.modal-content-text {
+    width: 70%;
+    padding-left: 20px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.modal-content-text.full-width {
+    width: 100%;
+    padding-left: 0;
+    transition: all 0.3s ease;
+}
+
+.dark .toc-toggle-btn {
+    background: #1a73e8;
+}
+
+.modal-toc.hidden {
+    display: none;
+}
+
+.modal-content-text.full-width {
+    width: 90%;  /* 从95%调整为90% */
+    padding: 0 15px;  /* 增加左右内边距 */
+    margin: 10px auto;  /* 添加上下外边距 */
+    }
+    @media (max-width: 480px) {
+    .modal-content-text.full-width {
+        width: 88%;  /* 从92%调整为88% */
+        padding: 0 12px;  /* 调整内边距 */
+        margin: 8px auto;  /* 保持居中并增加间距 */
+    }
+    }
+    
+    /* 深色模式适配 */
+    @media (max-width: 768px) {
+    .dark .modal-content-text.full-width {
+        background-color: #1e1e1e;  /* 确保深色背景完整 */
+    }
+}
+
+.dark .toc-toggle-btn {
+    background: #1a73e8;
+}
+
+.modal-toc.hidden {
+    display: none;
+}
+
+.modal-content-text.full-width {
+    width: 100%;
+    padding-left: 0;
+}

@@ -144,6 +144,14 @@ input:checked+.slider:before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin-top: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 深色模式下的容器样式 */
+.dark .container {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
 }
 
 /* 基础标题样式 */
