@@ -107,14 +107,6 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
-.light .slider:before {
-    content: url("images/sun_line.svg");
-}
-
-.dark .slider:before {
-    content: url("images/moon_stars_line.svg");
-}
-
 /* 美化容器 */
 .container {
     width: 80%;
@@ -152,6 +144,30 @@ p {
     color: #555;
 }
 
+/* 深色模式下主要内容和文字颜色 */
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark .container {
+    background: #23272f;
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.dark h1 {
+    color: #6ed6ff;
+}
+
+.dark .product-link {
+    color: #6ed6ff;
+}
+
+.dark .product-link:hover {
+    color: #ffe066;
+}
+
 /* 向上淡入动画 */
 @keyframes fadeInUp {
     from {
@@ -163,4 +179,13 @@ p {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.dark h3 {
+    color: #ffffff;
 }

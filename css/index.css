@@ -18,25 +18,94 @@ body.dark {
     color: #ffffff;
 }
 
+/* 导航栏美化 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #4f8cff 0%, #6ed6ff 100%);
+    padding: 16px 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 0 0 16px 16px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #ffe066;
+}
+
+/* 主题切换开关美化 */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #4f8cff;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+/* 主要内容区域美化 */
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px;
-    border-radius: 10px;
-    /* 添加圆角 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* 添加阴影 */
-    background-color: #fff;
-    /* 设置背景颜色 */
-    margin-top: 20px;
-    /* 添加顶部外边距 */
+    max-width: 700px;
+    margin: 48px auto 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(79, 140, 255, 0.08);
+    padding: 40px 32px;
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #007BFF;
+    font-size: 2.4rem;
+    color: #4f8cff;
+    margin-bottom: 32px;
+    letter-spacing: 2px;
     animation: fadeIn 1s ease-in-out;
     /* 添加淡入动画 */
 }
@@ -62,128 +131,19 @@ p {
     /* 添加顶部外边距 */
 }
 
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-    position: relative;
-    /* 添加相对定位 */
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #e0e0e0;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-}
-
-.nav-link:hover::after {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    /* 增加内边距 */
-    background-color: #007BFF;
-    color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* 添加阴影 */
-    transition: background-color 0.3s ease;
-    /* 添加过渡效果 */
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    /* 增加链接之间的间距 */
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-input:checked+.slider {
-    background-color: #000000;
-}
-
-input:checked+.slider:before {
-
-    transform: translateX(26px);
-}
-
-.light .slider:before {
-    content: url("images/sun_line.svg");
-}
-
-.dark .slider:before {
-    content: url("images/moon_stars_line.svg");
-}
-
-/* 首页专用样式 */
-/*
- * 首页专用样式
- * 包含：欢迎内容、按钮等特有样式
- */
-
-/* 继承基础样式 */
-h1 {
-    animation: fadeIn 1s ease-in-out;
-}
-
 /* 在线体验按钮样式 */
 button {
-    background-color: #007BFF;
-    color: white;
+    background: linear-gradient(90deg, #4f8cff 0%, #6ed6ff 100%);
+    color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 24px;
+    padding: 12px 36px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.12);
+    transition: background 0.18s, transform 0.18s;
 }
 
 /* 深色模式下的按钮样式 */
@@ -193,11 +153,47 @@ button {
 
 /* 按钮悬停效果 */
 button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background: linear-gradient(90deg, #6ed6ff 0%, #4f8cff 100%);
+    transform: translateY(-2px) scale(1.04);
+    /* 过渡动画已由 transition 控制 */
 }
 
-/* 按钮点击效果 */
+/* 新增点击（按下）状态 */
 button:active {
-    background-color: #004494;
+    background: linear-gradient(90deg, #3a6fd8 0%, #4fc3f7 100%);
+    transform: scale(0.98);
+    /* 过渡动画已由 transition 控制 */
+}
+
+button.clicked {
+    background: linear-gradient(90deg, #2b5bbf 0%, #3bb2e0 100%);
+    transform: scale(0.96);
+    /* 过渡动画已由 transition 控制 */
+}
+
+/* 链接美化 */
+.container a {
+    color: #4f8cff;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.container a:hover {
+    color: #6ed6ff;
+}
+
+/* 响应式适配 */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 12px 8px;
+    }
+
+    .container {
+        padding: 24px 8px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
 }
