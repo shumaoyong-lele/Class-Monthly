@@ -24,13 +24,9 @@ body.dark {
     overflow: hidden;
     padding: 20px;
     border-radius: 10px;
-    /* 添加圆角 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* 添加阴影 */
     background-color: #fff;
-    /* 设置背景颜色 */
     margin-top: 20px;
-    /* 添加顶部外边距 */
 }
 
 h1 {
@@ -38,7 +34,6 @@ h1 {
     margin-top: 20px;
     color: #007BFF;
     animation: fadeIn 1s ease-in-out;
-    /* 添加淡入动画 */
 }
 
 @keyframes fadeIn {
@@ -57,9 +52,7 @@ p {
     text-align: center;
     font-size: 18px;
     color: #666;
-    /* 设置文本颜色 */
     margin-top: 10px;
-    /* 添加顶部外边距 */
 }
 
 .nav-link {
@@ -68,7 +61,6 @@ p {
     font-size: 18px;
     transition: color 0.3s ease;
     position: relative;
-    /* 添加相对定位 */
 }
 
 .nav-link::after {
@@ -94,19 +86,15 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    /* 增加内边距 */
     background-color: #007BFF;
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* 添加阴影 */
     transition: background-color 0.3s ease;
-    /* 添加过渡效果 */
 }
 
 .nav-links {
     display: flex;
     gap: 20px;
-    /* 增加链接之间的间距 */
 }
 
 .switch {

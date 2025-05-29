@@ -19,4 +19,13 @@
     y = l.getElementsByTagName(r)[0];
     // 在第一个script标签前插入Clarity脚本
     y.parentNode.insertBefore(t, y);
+
+    // 添加页面加载动画
+    document.addEventListener('DOMContentLoaded', () => {
+        const features = document.querySelectorAll('.feature-card');
+        features.forEach((feature, index) => {
+            feature.style.animation = `fadeIn 0.5s ease ${index * 0.2}s forwards`;
+            feature.style.opacity = 0;
+        });
+    });
 })(window, document, "clarity", "script", "qtvqid4vik");

@@ -12,7 +12,6 @@ body {
     color: #333;
     line-height: 1.6;
     transition: background-color 0.4s, color 0.4s;
-    /* 平滑过渡效果 */
 }
 
 /* 浅色主题样式 */
@@ -27,7 +26,7 @@ body.dark {
     color: #ffffff;
 }
 
-/* 导航栏样式 */
+/* 导航栏样式 - 从index.css迁移 */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -38,13 +37,11 @@ body.dark {
     border-radius: 0 0 16px 16px;
 }
 
-/* 导航链接容器 */
 .nav-links {
     display: flex;
     gap: 24px;
 }
 
-/* 单个导航链接样式 */
 .nav-link {
     color: #fff;
     font-weight: 500;
@@ -53,27 +50,22 @@ body.dark {
     transition: color 0.2s;
 }
 
-/* 导航链接悬停效果 */
 .nav-link:hover {
-    color: #ffffff;
+    color: #ffe066;
 }
 
-/* 主题切换开关样式 */
+/* 主题切换开关样式 - 从index.css整合 */
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 48px;
+    height: 24px;
 }
 
-/* 隐藏默认复选框 */
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+    display: none;
 }
 
-/* 滑块样式 */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -83,46 +75,38 @@ body.dark {
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-    border-radius: 34px;
+    border-radius: 24px;
 }
 
-/* 主题切换开关滑块基础样式 */
-.slider.round:before {
-    content: "";
+.slider:before {
     position: absolute;
+    content: "";
     height: 20px;
     width: 20px;
     left: 2px;
     bottom: 2px;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: 0.4s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-}
-
-/* 滑块按钮 */
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
     background-color: white;
     transition: .4s;
     border-radius: 50%;
 }
 
-/* 选中状态样式 */
 input:checked+.slider {
-    background-color: #000000;
+    background-color: #4f8cff;
 }
 
 input:checked+.slider:before {
-    transform: translateX(26px);
+    transform: translateX(24px);
+}
+
+/* 链接样式 - 从index.css整合 */
+.container a {
+    color: #4f8cff;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.container a:hover {
+    color: #6ed6ff;
 }
 
 /* 浅色模式下显示太阳图标 */
@@ -149,15 +133,14 @@ body.dark .slider.round:before {
 
 /* 基础容器样式 */
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    max-width: 700px;
+    margin: 48px auto 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(79, 140, 255, 0.08);
+    padding: 40px 32px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* 深色模式下的容器样式 */
@@ -188,13 +171,24 @@ p {
         opacity: 0;
         transform: translateY(-20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+.feature-card {
+    background: rgba(79, 140, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(79, 140, 255, 0.15);
+}
 .product-link {
     color: #4f8cff;
     cursor: pointer;
@@ -205,4 +199,36 @@ p {
 
 .product-link:hover {
     color: #6ed6ff;
+}
+
+/* 响应式适配优化 */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 12px 8px;
+    }
+    
+    .container {
+        padding: 24px 8px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 按钮交互状态优化 */
+button:active {
+    background: linear-gradient(90deg, #3a6fd8 0%, #4fc3f7 100%);
+    transform: scale(0.98);
+}
+
+button.clicked {
+    background: linear-gradient(90deg, #2b5bbf 0%, #3bb2e0 100%);
+    transform: scale(0.96);
 }

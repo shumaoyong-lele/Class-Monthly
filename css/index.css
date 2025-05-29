@@ -197,3 +197,58 @@ button.clicked {
         font-size: 1.5rem;
     }
 }
+
+/* 英雄区域样式 */
+.hero-section {
+    margin-bottom: 40px;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    color: #4f8cff;
+    margin-bottom: 30px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.feature-card {
+    background: rgba(79, 140, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(79, 140, 255, 0.15);
+}
+
+.feature-card h3 {
+    color: #4f8cff;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 深色模式下的特色卡片 */
+.dark .feature-card {
+    background: rgba(110, 214, 255, 0.1);
+}
+
+.dark .feature-card h3 {
+    color: #6ed6ff;
+}
+
+.dark .feature-card p {
+    color: #aaa;
+}
