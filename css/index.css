@@ -198,30 +198,44 @@ button.clicked {
     }
 }
 
-/* 英雄区域样式 */
+/* 首页英雄区域样式 */
 .hero-section {
-    margin-bottom: 40px;
+    margin: 40px 0;
+    padding: 24px 16px;
 }
 
 .hero-text {
-    font-size: 1.5rem;
-    color: #4f8cff;
-    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    line-height: 1.4;
 }
 
+/* 特色卡片响应式优化 */
 .features {
     display: flex;
+    flex-wrap: wrap; /* 小屏幕自动换行 */
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 20px; /* 原30px缩小 */
 }
 
 .feature-card {
     background: rgba(79, 140, 255, 0.1);
-    padding: 20px;
+    padding: 16px; /* 原20px缩小 */
     border-radius: 12px;
-    width: 200px;
+    min-width: 220px; /* 限制最小宽度 */
     transition: transform 0.3s ease;
+}
+
+/* 按钮交互增强（添加按压反馈） */
+button {
+    background: linear-gradient(90deg, var(--primary-color) 0%, #6ed6ff 100%);
+    /* 其他样式保持 */
+}
+
+button:active {
+    transform: scale(0.98) translateY(1px); /* 新增Y轴偏移更真实 */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover {

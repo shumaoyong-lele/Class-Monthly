@@ -1,29 +1,37 @@
 /**
  * 通用JavaScript文件
- * 主要功能：主题切换功能
+ * 主要功能：主题切换功能（优化后）
  */
 
-// 获取主题切换开关元素
+// 从 localStorage 获取用户主题偏好
+const savedTheme = localStorage.getItem('theme');
 const toggleSwitch = document.getElementById("theme-toggle");
 
-/**
- * 检测系统是否为深色模式
- * @type {boolean}
- */
-const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-// 根据系统偏好设置初始主题
-if (prefersDarkMode) {
-    document.body.classList.remove("light");
-    document.body.classList.add("dark");
-    toggleSwitch.checked = true;
+// 初始化主题
+function initializeTheme() {
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = savedTheme || (prefersDarkMode ? 'dark' : 'light');
+    
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(initialTheme);
+    toggleSwitch.checked = initialTheme === 'dark';
 }
 
-/**
- * 主题切换事件监听
- * 切换深色/浅色主题
- */
-toggleSwitch.addEventListener("change", () => {
-    document.body.classList.toggle("dark");
-    document.body.classList.toggle("light");
-});
+// 保存主题到 localStorage
+function saveTheme(theme) {
+    localStorage.setItem('theme', theme);
+}
+
+// 切换主题逻辑
+function toggleTheme() {
+    const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
+    saveTheme(newTheme);
+}
+
+// 主题切换事件监听（优化后）
+toggleSwitch.addEventListener("change", toggleTheme);
+
+// 初始化调用
+initializeTheme();

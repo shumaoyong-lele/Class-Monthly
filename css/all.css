@@ -132,10 +132,28 @@ body.dark .slider.round:before {
 }
 
 /* 基础容器样式 */
+/* 定义主题变量（新增） */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333;
+    --primary-color: #4f8cff;
+    --dark-bg-color: #121212;
+    --dark-text-color: #ffffff;
+}
+
+/* 导航栏新增当前页面高亮状态 */
+.nav-link.active {
+    color: #ffe066;
+    font-weight: 600;
+    border-bottom: 2px solid #ffe066;
+    padding-bottom: 4px;
+}
+
+/* 清理从 index.css 迁移后冗余的 .container 样式（保留核心） */
 .container {
     max-width: 700px;
     margin: 48px auto 0 auto;
-    background: #fff;
+    background: var(--bg-color); /* 使用变量 */
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(79, 140, 255, 0.08);
     padding: 40px 32px;
@@ -143,6 +161,297 @@ body.dark .slider.round:before {
     animation: fadeIn 1s ease-in-out;
 }
 
+/* 深色模式容器样式（使用变量） */
+.dark .container {
+    background-color: var(--dark-bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: var(--dark-text-color);
+}
+
+/* 响应式适配（优化小屏幕导航栏） */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 12px 16px; /* 原8px调整为16px更舒适 */
+        gap: 12px;
+    }
+    .nav-links {
+        gap: 16px; /* 原24px缩小 */
+    }
+    .nav-link {
+        font-size: 16px; /* 原18px缩小 */
+    }
+}
+/* 深色模式下的容器样式 */
+.dark .container {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
+}
+
+/* 基础标题样式 */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #007BFF;
+}
+
+/* 基础段落样式 */
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card {
+    background: rgba(79, 140, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(79, 140, 255, 0.15);
+}
+.product-link {
+    color: #4f8cff;
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 0 4px;
+    transition: color 0.2s;
+}
+
+.product-link:hover {
+    color: #6ed6ff;
+}
+
+/* 响应式适配优化 */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 12px 8px;
+    }
+    
+    .container {
+        padding: 24px 8px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 按钮交互状态优化 */
+button:active {
+    background: linear-gradient(90deg, #3a6fd8 0%, #4fc3f7 100%);
+    transform: scale(0.98);
+}
+
+button.clicked {
+    background: linear-gradient(90deg, #2b5bbf 0%, #3bb2e0 100%);
+    transform: scale(0.96);
+}
+
+/* 统一主题变量（优化后） */
+:root {
+    --light-bg: #ffffff;
+    --light-text: #000000;
+    --dark-bg: #121212;
+    --dark-text: #ffffff;
+    --primary-color: #4f8cff;
+    --secondary-color: #6ed6ff;
+    --border-color: #ddd;
+}
+
+/* 移除其他 CSS 文件中重复的 body 样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+body.light {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+body.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+/* 优化导航栏响应式（小屏幕换行） */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 12px 8px;
+        gap: 16px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+.nav-link {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #ffe066;
+}
+
+/* 主题切换开关样式 - 从index.css整合 */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #4f8cff;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+/* 链接样式 - 从index.css整合 */
+.container a {
+    color: #4f8cff;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.container a:hover {
+    color: #6ed6ff;
+}
+
+/* 浅色模式下显示太阳图标 */
+body.light .slider.round:before {
+    content: "";
+    display: inline-block;
+    background: url('../images/LineMdSunRisingLoop.svg') no-repeat center/contain;
+    width: 20px;
+    height: 20px;
+    color: #f7c948;
+    background-color: #fffbe6;
+}
+
+/* 深色模式下显示月亮图标 */
+body.dark .slider.round:before {
+    content: "";
+    display: inline-block;
+    background: url('../images/LineMdMoonRisingAltLoop.svg') no-repeat center/contain;
+    width: 20px;
+    height: 20px;
+    color: #6ed6ff;
+    background-color: #23272f;
+}
+
+/* 基础容器样式 */
+/* 定义主题变量（新增） */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333;
+    --primary-color: #4f8cff;
+    --dark-bg-color: #121212;
+    --dark-text-color: #ffffff;
+}
+
+/* 导航栏新增当前页面高亮状态 */
+.nav-link.active {
+    color: #ffe066;
+    font-weight: 600;
+    border-bottom: 2px solid #ffe066;
+    padding-bottom: 4px;
+}
+
+/* 清理从 index.css 迁移后冗余的 .container 样式（保留核心） */
+.container {
+    max-width: 700px;
+    margin: 48px auto 0 auto;
+    background: var(--bg-color); /* 使用变量 */
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(79, 140, 255, 0.08);
+    padding: 40px 32px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 深色模式容器样式（使用变量） */
+.dark .container {
+    background-color: var(--dark-bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: var(--dark-text-color);
+}
+
+/* 响应式适配（优化小屏幕导航栏） */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 12px 16px; /* 原8px调整为16px更舒适 */
+        gap: 12px;
+    }
+    .nav-links {
+        gap: 16px; /* 原24px缩小 */
+    }
+    .nav-link {
+        font-size: 16px; /* 原18px缩小 */
+    }
+}
 /* 深色模式下的容器样式 */
 .dark .container {
     background-color: #2d2d2d;
