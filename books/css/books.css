@@ -1,0 +1,24 @@
+.content-text p {
+    color: #000000;
+    background: rgba(255,255,255,0.7); 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03); 
+    padding: 18px; 
+    text-indent:2em;
+}
+
+.dark .content-text p {
+    color: var(--dark-text-color);
+    background: rgba(18,18,18,0.9);
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+}
+
+div {
+    transition: background-color 0.4s, color 0.4s, box-shadow 0.4s; /* 补充阴影过渡 */
+}
+
+.dark h1 {
+    color: var(--dark-text-color);
+    background: rgba(30,32,40,0.9); /* 微调透明度增强融合 */
+    box-shadow: 0 2px 12px 0 var(--dark-shadow);
+}

@@ -18,7 +18,7 @@ body.dark {
     color: #ffffff;
 }
 
-/* 美化容器 */
+/* 容器样式 */
 .container {
     width: 80%;
     max-width: 900px;
@@ -28,37 +28,7 @@ body.dark {
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1s ease-out;
-}
-
-/* 关于我们页面专用样式
- * 扩展自all.css的基础样式，添加了关于页面的特有样式
- */
-
-/* 继承基础样式 */
-.container {
-    max-width: 900px;
-    padding: 40px;
-    animation: fadeInUp 1s ease-out;
-}
-
-/* 关于页面标题样式 */
-h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* 关于页面段落样式 */
-p {
-    text-align: justify;
-    line-height: 1.8;
-    color: #555;
-}
-
-/* 深色模式下主要内容和文字颜色 */
-body.dark {
-    background-color: #121212;
-    color: #ffffff;
+    color: #333;
 }
 
 .dark .container {
@@ -67,7 +37,48 @@ body.dark {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
 
+/* 标题样式 */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .dark h1 {
+    color: #6ed6ff;
+}
+
+/* 段落样式 */
+p {
+    text-align: justify;
+    line-height: 1.8;
+    color: #555;
+}
+
+.dark p {
+    color: #e0e0e0;
+}
+
+/* h3 标题样式 */
+h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.dark h3 {
+    color: #ffffff;
+}
+
+/* 产品链接样式 */
+.product-link {
+    color: #4f8cff;
+    text-decoration: underline;
+    transition: color 0.2s;
+    cursor: pointer;
+    margin: 0 4px;
+}
+
+.product-link:hover {
     color: #6ed6ff;
 }
 
@@ -79,7 +90,7 @@ body.dark {
     color: #ffe066;
 }
 
-/* 向上淡入动画 */
+/* 动画 */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -90,13 +101,4 @@ body.dark {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-h3 {
-    margin: 10px 0;
-    color: #333;
-}
-
-.dark h3 {
-    color: #ffffff;
 }

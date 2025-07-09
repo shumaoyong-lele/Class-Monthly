@@ -1,0 +1,111 @@
+<!--Copyright (c) [Year] [name of copyright holder]
+[Software Name] is licensed under Mulan PSL v2.
+You can use this software according to the terms and conditions of the Mulan
+PSL v2.
+You may obtain a copy of Mulan PSL v2 at:
+         http://license.coscl.org.cn/MulanPSL2
+THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+See the Mulan PSL v2 for more details.-->
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="Pngs/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>400 请求错误</title>
+    <link rel="stylesheet" href="css/all.css">
+    <style>
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: justify;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* 在线体验按钮样式 */
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* 深色模式下的按钮样式 */
+        .dark button {
+            background-color: #1a73e8;
+        }
+
+        /* 按钮悬停效果 */
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* 按钮点击效果 */
+        button:active {
+            background-color: #004494;
+        }
+    </style>
+</head>
+
+<body class="light">
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="books.html" class="nav-link">书籍</a>
+        </div>
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题">
+            <span class="slider round"></span>
+        </label>
+    </nav>
+    <div class="container">
+        <h1>400 请求错误</h1>
+        <p>您发送的请求存在语法错误，服务器无法理解。请检查URL地址或联系管理员。</p>
+        <button onclick="location.href='index.html'">返回首页</button>
+        <div>
+            <p>可能的原因：</p>
+            <ul>
+                <li>您输入的网址有误。</li>
+        </div>
+        <div>
+            <p>管理员联系方式：1**********</p>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

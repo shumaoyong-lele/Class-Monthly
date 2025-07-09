@@ -107,7 +107,6 @@ h1 {
     margin-bottom: 32px;
     letter-spacing: 2px;
     animation: fadeIn 1s ease-in-out;
-    /* 添加淡入动画 */
 }
 
 @keyframes fadeIn {
@@ -115,7 +114,6 @@ h1 {
         opacity: 0;
         transform: translateY(-20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -126,9 +124,7 @@ p {
     text-align: center;
     font-size: 18px;
     color: #666;
-    /* 设置文本颜色 */
     margin-top: 10px;
-    /* 添加顶部外边距 */
 }
 
 /* 在线体验按钮样式 */
@@ -146,32 +142,26 @@ button {
     transition: background 0.18s, transform 0.18s;
 }
 
-/* 深色模式下的按钮样式 */
 .dark button {
     background-color: #1a73e8;
 }
 
-/* 按钮悬停效果 */
 button:hover {
     background: linear-gradient(90deg, #6ed6ff 0%, #4f8cff 100%);
     transform: translateY(-2px) scale(1.04);
-    /* 过渡动画已由 transition 控制 */
 }
 
-/* 新增点击（按下）状态 */
 button:active {
     background: linear-gradient(90deg, #3a6fd8 0%, #4fc3f7 100%);
-    transform: scale(0.98);
-    /* 过渡动画已由 transition 控制 */
+    transform: scale(0.98) translateY(1px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 button.clicked {
     background: linear-gradient(90deg, #2b5bbf 0%, #3bb2e0 100%);
     transform: scale(0.96);
-    /* 过渡动画已由 transition 控制 */
 }
 
-/* 链接美化 */
 .container a {
     color: #4f8cff;
     text-decoration: underline;
@@ -188,11 +178,9 @@ button.clicked {
         flex-direction: column;
         padding: 12px 8px;
     }
-
     .container {
         padding: 24px 8px;
     }
-
     h1 {
         font-size: 1.5rem;
     }
@@ -214,28 +202,17 @@ button.clicked {
 /* 特色卡片响应式优化 */
 .features {
     display: flex;
-    flex-wrap: wrap; /* 小屏幕自动换行 */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* 原30px缩小 */
+    gap: 20px;
 }
 
 .feature-card {
     background: rgba(79, 140, 255, 0.1);
-    padding: 16px; /* 原20px缩小 */
+    padding: 16px;
     border-radius: 12px;
-    min-width: 220px; /* 限制最小宽度 */
+    min-width: 220px;
     transition: transform 0.3s ease;
-}
-
-/* 按钮交互增强（添加按压反馈） */
-button {
-    background: linear-gradient(90deg, var(--primary-color) 0%, #6ed6ff 100%);
-    /* 其他样式保持 */
-}
-
-button:active {
-    transform: scale(0.98) translateY(1px); /* 新增Y轴偏移更真实 */
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover {

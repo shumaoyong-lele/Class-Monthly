@@ -16,24 +16,24 @@ See the Mulan PSL v2 for more details.-->
     <!-- 基础元数据 -->
     <meta charset="UTF-8" />
     <!-- 网站图标 -->
-    <link rel="icon" type="image/svg+xml" href="images\icon.jpg" />
+    <link rel="icon" type="image/svg+xml" href="../images/icon.jpg" />
     <!-- 响应式设计设置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 页面标题 -->
     <title>书籍-班级月刊官网</title>
 
     <!-- 引入通用样式和书籍页面专用样式 -->
-    <link rel="stylesheet" href="css/all.css" />
-    <link rel="stylesheet" href="css/books.css" />
+    <link rel="stylesheet" href="../css/all.css" />
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body class="light">
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-links">
-            <a href="index.html" class="nav-link">首页</a>
-            <a href="about.html" class="nav-link">关于我们</a>
-            <a href="books.html" class="nav-link">书籍</a>
+            <a href="../index.html" class="nav-link">首页</a>
+            <a href="../about.html" class="nav-link">关于我们</a>
+            <a href="index.html" class="nav-link">书籍</a>
         </div>
         <label class="switch">
             <input type="checkbox" id="theme-toggle" title="切换主题" aria-label="切换主题">
@@ -45,8 +45,8 @@ See the Mulan PSL v2 for more details.-->
     <div class="container">
         <div class="book-grid" style="opacity: 0; transform: translateY(20px)">
             <!-- 孔乙己书籍项 -->
-            <div class="book-item">
-                <img src="images/孔乙己.png" alt="孔乙己" />
+            <div class="book-item" data-book="孔乙己">
+                <img src="../images/孔乙己.png" alt="孔乙己" loading="lazy" />
                 <h3>孔乙己</h3>
                 <p>作者：鲁迅</p>
                 <div class="book-description">
@@ -54,14 +54,22 @@ See the Mulan PSL v2 for more details.-->
                 </div>
             </div>
             <!-- 稻草人书籍项 -->
-            <div class="book-item">
-                <img src="images/稻草人.png" alt="稻草人" />
+            <div class="book-item" data-book="稻草人">
+                <img src="../images/稻草人.png" alt="稻草人" loading="lazy" />
                 <h3>稻草人</h3>
                 <p>作者：叶圣陶</p>
                 <div class="book-description">
                     在这篇故事里，站在田野的稻草人目睹诸多人间惨事：农妇痛失亲人、渔妇艰难求生、鲫鱼挣扎求存。作者以细腻笔触，将社会的黑暗与底层人民的苦难展现得淋漓尽致，同时也传递出人性
                 </div>
             </div>
+            <div class="book-item" data-book="记忆黑市贩卖者">
+                <img src="../images/记忆黑市贩卖者（竖版）.png"  alt="记忆黑市贩卖者" loading="lazy" />
+                <h3>记忆黑市贩卖者</h3>
+                <p>作者：无畏的少年</p>
+                <p>⚠️声明：此作由AI生成</p>
+                <div class="book-description">
+                    未来反乌托邦的“穹顶城”通过情感芯片控制人类，禁锢记忆。“清洁工”凯受雇清除记忆，却意外触发“蓝花之痕”——一关键性情感记忆。这被反政府组织“织网者”莉亚利用，他们了解到这是破坏芯片系统的关键。凯牺牲自我，将“蓝花之痕”的情感力量释放为信号，瘫痪城市情感抑制网络，引发情感觉醒，撼动整个社会体系，留下希望的萌芽。
+                </div>
         </div>
     </div>
 
@@ -70,6 +78,7 @@ See the Mulan PSL v2 for more details.-->
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <button id="toggle-toc" class="toc-toggle-btn">隐藏目录</button>
+            <!--<button id="full-width" class= "full-width-btn">全屏</button>-->
             <div class="modal-container">
                 <!-- 目录区域 -->
                 <div class="modal-toc">
@@ -85,8 +94,8 @@ See the Mulan PSL v2 for more details.-->
         </div>
     </div>
     <!-- 引入书籍页面专用JS和通用JS -->
-    <script type="text/javascript" src="js/books.js"></script>
-    <script src="js/script.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

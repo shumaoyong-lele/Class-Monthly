@@ -51,7 +51,7 @@ h1 {
 p {
     text-align: center;
     font-size: 18px;
-    color: #666;
+    color: #000000;
     margin-top: 10px;
 }
 
@@ -59,12 +59,17 @@ p {
  * 包含：书籍网格布局、书籍项样式、阅读弹窗等
  */
 
-/* 继承基础样式 */
+/* 移除重复的body样式，保留页面特有样式 */
+
+/* 书籍网格布局优化 */
 .book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 24px;
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 /* 单个书籍项样式 */
@@ -72,16 +77,18 @@ p {
     position: relative;
     text-align: center;
     padding: 15px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    background: var(--bg-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     cursor: pointer;
+    overflow: hidden;
 }
 
 /* 书籍项悬停效果 */
 .book-item:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 /* 书籍图片样式 */
@@ -89,19 +96,27 @@ p {
     width: 100%;
     max-height: 300px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    transition: transform var(--transition-normal);
+}
+
+.book-item:hover img {
+    transform: scale(1.03);
 }
 
 /* 书籍标题样式 */
 .book-item h3 {
-    margin: 10px 0;
-    color: #333;
+    margin: 12px 0 8px;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 600;
 }
 
 /* 书籍作者样式 */
 .book-item p {
-    color: #666;
+    color: var(--text-light);
     font-size: 14px;
+    margin-bottom: 16px;
 }
 
 /* 书籍描述样式（悬停显示） */
@@ -123,16 +138,47 @@ p {
     border-radius: 8px;
 }
 
-/* 书籍描述悬停显示效果 */
-.book-item:hover .book-description {
+.dark .book-description {
+    background: rgba(20, 20, 20, 0.95);
+}
+
+/* 阅读弹窗样式优化 */
+.book-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.book-modal.active {
     opacity: 1;
 }
 
-/* 书籍网格动画 */
-.book-grid {
-    animation: slideUp 0.8s ease-out forwards;
-    opacity: 0;
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 5% auto;
+    padding: 24px;
+    width: 80%;
+    max-width: 900px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     transform: translateY(20px);
+    transition: transform var(--transition-normal);
+}
+
+.book-modal.active .modal-content {
+    transform: translateY(0);
+}
+/* 书籍描述悬停显示效果 */
+.book-item:hover .book-description {
+    opacity: 1;
 }
 
 /* 向上滑动动画 */
@@ -269,14 +315,6 @@ body.dark .modal-content {
     height: 80vh;
 }
 
-/* 目录区域样式 */
-.modal-toc {
-    width: 30%;
-    padding-right: 20px;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-}
-
 /* 内容区域样式 */
 .modal-content-text {
     width: 70%;
@@ -297,32 +335,32 @@ body.dark .modal-content {
 
 /* 深色模式下的弹窗样式 */
 .dark .modal-content {
-    background-color: #1e1e1e;
-    color: #ffffff;
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
 }
 
 .dark .modal-toc {
     border-right-color: #444;
-    background-color: #1e1e1e;
+    background-color: var(--dark-bg-color);
 }
 
 .dark .modal-content-text {
-    color: #e0e0e0;
-    background-color: #1e1e1e;
+    color: var(--dark-text-color);
+    background-color: var(--dark-bg-color);
 }
 
 .dark .close-modal {
-    color: #ffffff;
+    color: var(--dark-text-color);
 }
 
 /* 深色模式下的书籍介绍样式 */
 .dark .book-description {
-    color: #e0e0e0;
+    color: var(--dark-text-color);
     background-color: rgba(30, 30, 30, 0.9);
 }
 
 .dark .book-item {
-    background-color: #2d2d2d;
+    background-color: var(--dark-bg-color);
 }
 
 .dark .book-item h3,
@@ -340,6 +378,12 @@ body.dark .modal-content {
 
 .dark .content-text {
     color: #e0e0e0;
+}
+
+.dark .content-text p {
+    color: var(--dark-text-color); /* 使用全局文字颜色变量 */
+    background: rgba(30,32,40,0.85);
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
 }
 
 .toc-list {
@@ -438,7 +482,7 @@ body.dark .modal-content {
         padding: 10px 0;
         font-size: 15px;
     }
-}
+} 
 
 @media (max-width: 768px) {
     .toc-list li:active {
@@ -462,6 +506,21 @@ body.dark .modal-content {
     border-radius: 4px;
     cursor: pointer;
     z-index: 1001;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.full-width-btn {
+    position: absolute;
+    top: 10px;
+    right: 500px;
+    /* 调整到关闭按钮左侧 */
+    padding: 5px 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1001;
     transition: all 0.3s ease;
 }
 
@@ -475,17 +534,8 @@ body.dark .modal-content {
     padding-right: 20px;
     border-right: 1px solid #ddd;
     overflow-y: auto;
-    transition: all 0.3s ease;
-    transform-origin: left;
-}
-
-/* 清理重复的 .modal-toc 和 .modal-content-text 样式（保留核心逻辑） */
-.modal-toc {
-    width: 30%;
-    padding-right: 20px;
-    border-right: 1px solid var(--border-color); /* 使用变量 */
-    overflow-y: auto;
-    transition: transform 0.3s ease, width 0.3s ease, opacity 0.3s ease; /* 明确过渡属性 */
+    
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
     transform-origin: left;
 }
 
@@ -494,8 +544,9 @@ body.dark .modal-content {
     width: 0;
     padding-right: 0;
     opacity: 0;
-    display: block; /* 强制 block 以保证过渡 */
+    display: none
 }
+
 
 /* 移动端布局优化 */
 @media (max-width: 768px) {
@@ -586,40 +637,9 @@ body.dark .modal-content {
     }
 }
 
-.toc-toggle-btn {
-    position: absolute;
-    top: 10px;
-    right: 60px;
-    /* 调整到关闭按钮左侧 */
-    padding: 5px 10px;
-    background: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    z-index: 1001;
-    transition: all 0.3s ease;
-}
-
 .toc-toggle-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.modal-toc {
-    width: 30%;
-    padding-right: 20px;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-    transition: all 0.3s ease;
-    transform-origin: left;
-}
-
-.modal-toc.hidden {
-    transform: scaleX(0);
-    width: 0;
-    padding-right: 0;
-    opacity: 0;
 }
 
 .modal-content-text {
@@ -637,10 +657,6 @@ body.dark .modal-content {
 
 .dark .toc-toggle-btn {
     background: #1a73e8;
-}
-
-.modal-toc.hidden {
-    display: none;
 }
 
 .modal-content-text.full-width {
