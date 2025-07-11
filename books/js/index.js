@@ -95,7 +95,24 @@ toggleSwitch.addEventListener("change", () => {
  * 加载书籍内容函数
  * @param {string} bookId - 书籍ID (kongyiji或daocaoren)
  */
-function loadBookContent(bookId) {
+
+async function fetch_book_data() {
+    try{
+        const response = await fetch('content/book.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        // console.log(data);
+        return data;
+    }catch (error){
+        console.error(error);
+        return false;
+    }
+}
+
+// 修改为async异步函数
+async function loadBookContent(bookId) {
     const tocList = document.querySelector('.toc-list'); // 目录列表
     const contentText = document.querySelector('.content-text'); // 内容区域
 
@@ -103,19 +120,16 @@ function loadBookContent(bookId) {
     tocList.innerHTML = "";
     contentText.innerHTML = "";
 
-    /**
-     * 书籍内容数据
-     * @type {Object}
-     * @property {Array} chapters - 章节标题数组
-     * @property {Array} contents - 章节内容数组
-     */
-    const booksData = {
-
-    };
+    // 异步获取书籍数据
+    const booksData = await fetch_book_data();
+    if (!booksData) {
+        contentText.innerHTML = "<p>加载书籍数据失败，请稍后重试。</p>";
+        return;
+    }
 
     const book = booksData[bookId];
     let currentSelectedItem = null; // 当前选中的章节项
-    const bookUrl = booksData[bookId].url;
+    const bookUrl = book && book.url;
 
     if (book) {
         // 从本地存储获取上次阅读位置
@@ -146,13 +160,12 @@ function loadBookContent(bookId) {
 
         // 显示上次阅读的章节或第一章
         showLastReadChapter(tocList, contentText, book, lastChapterIndex);
-        if (full-width) {
-            full-width.addEventListener('click', () => {
-                if (book.url) {
-                    window.open(book.url, '_blank');
-                }
-            });
-        }
+
+        // 全屏按钮逻辑（如有）
+        // const fullWidthBtn = document.getElementById('full-width');
+        // if (fullWidthBtn && bookUrl) {
+        //     fullWidthBtn.onclick = () => window.open(bookUrl, '_blank');
+        // }
     }
 }
 
