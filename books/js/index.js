@@ -64,6 +64,8 @@ document.querySelectorAll('.book-item').forEach((item, index) => {
             loadBookContent('daocaoren'); // 加载稻草人内容
         } else if (index === 2) {
             loadBookContent('jiyiheishifanmaizhe'); 
+        } else if (index === 3){
+            loadBookContent('xueyefengtan'); 
         }
     });
 });
